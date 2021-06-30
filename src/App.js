@@ -1,26 +1,21 @@
 import React, { Component } from 'react'
+import Articles from './composants/Articles'
 
 export default class App extends Component {
     state = {
-        data: new Date(),
-        
-    }
-    timed = {
-        timer: null
-    }
-    componentDidMount() {
-         this.timed.timer = setInterval(() => {
-          this.setState({data: new Date()})
-      },1000)
-    }
-    componentDidUnMount() {
-        clearInterval(this.timed.timer)
+        argent: 20,
+        panier: [],
+        articles: [
+            { nom: "ananas", prix: 5, stock: 2, src: "Ananas", id:0 },
+            { nom: "fraise", prix: 3.2, stock: 10, src: "fraise", id: 1 },
+            {nom: "guoyave", prix: 12, stock : 1, src : "../images/guoyave.jpg", id:2}
+        ]
     }
     render() {
         return (
-            <div>
-              Il est {this.state.data.getHours()}:{this.state.data.getMinutes()}:{this.state.data.getSeconds()} 
-            </div>
+        
+        <Articles objet={ this.state }/>
+          
         )
     }
 }
